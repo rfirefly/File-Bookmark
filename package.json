@@ -8,7 +8,7 @@
   "displayName": "File Bookmark",
   "description": "Quickly access important folders and files",
   "icon": "docs/icon.png",
-  "version": "1.0.0",
+  "version": "1.0.3",
   "engines": {
     "vscode": "^1.79.1"
   },
@@ -116,12 +116,9 @@
     }
   },
   "scripts": {
-    "vscode:prepublish": "pnpm run esbuild-base --minify",
-    "vscode:publish": "pnpm dlx @vscode/vsce publish",
+    "vscode:prepublish": "npm run esbuild-base --minify",
     "esbuild-base": "esbuild ./src/extension.ts --bundle --outfile=out/main.js --external:vscode --format=cjs --platform=node",
-    "compile": "tsc -p ./",
     "watch": "npm run esbuild-base -- --sourcemap --watch",
-    "pretest": "npm run compile && npm run lint",
     "lint": "eslint src --ext ts",
     "test": "node ./out/test/runTest.js"
   },
