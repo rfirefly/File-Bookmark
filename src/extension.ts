@@ -1,47 +1,47 @@
-import * as vscode from "vscode";
-import { ExplorerBookmark } from "./provider/ExplorerBookmark";
+import * as vscode from 'vscode'
+import { ExplorerBookmark } from './provider/ExplorerBookmark'
 
 export function activate(context: vscode.ExtensionContext) {
   const explorerBookmark = new ExplorerBookmark(
     context,
-    vscode.workspace.workspaceFolders
-  );
+    vscode.workspace.workspaceFolders,
+  )
 
-  vscode.window.registerTreeDataProvider("explorer-bookmark", explorerBookmark);
+  vscode.window.registerTreeDataProvider('file-bookmark', explorerBookmark)
 
   context.subscriptions.push(
     ...[
-      vscode.commands.registerCommand("explorer-bookmark.refreshEntry", () =>
-        explorerBookmark.refresh()
+      vscode.commands.registerCommand('file-bookmark.refreshEntry', () =>
+        explorerBookmark.refresh(),
       ),
-      vscode.commands.registerCommand("explorer-bookmark.openFile", (file) => {
+      vscode.commands.registerCommand('file-bookmark.openFile', (file) => {
         vscode.commands.executeCommand(
-          "vscode.open",
-          vscode.Uri.parse(file.resourceUri.path)
-        );
+          'vscode.open',
+          vscode.Uri.parse(file.resourceUri.path),
+        )
       }),
-      vscode.commands.registerCommand("explorer-bookmark.selectItem", (args) =>
-        explorerBookmark.selectItem(vscode.Uri.parse(args.path))
+      vscode.commands.registerCommand('file-bookmark.selectItem', args =>
+        explorerBookmark.selectItem(vscode.Uri.parse(args.path)),
       ),
       vscode.commands.registerCommand(
-        "explorer-bookmark.removeItem",
+        'file-bookmark.removeItem',
         (args) => {
-          explorerBookmark.removeItem(args.resourceUri);
-        }
+          explorerBookmark.removeItem(args.resourceUri)
+        },
       ),
       vscode.commands.registerCommand(
-        "explorer-bookmark.cantRemoveItemMsg",
+        'file-bookmark.cantRemoveItemMsg',
         () => {
           vscode.window.showInformationMessage(
-            "You can only remove items that were directly added to the view"
-          );
-        }
+            'You can only remove items that were directly added to the view',
+          )
+        },
       ),
-      vscode.commands.registerCommand("explorer-bookmark.removeAllItems", () =>
-        explorerBookmark.removeAllItems()
+      vscode.commands.registerCommand('file-bookmark.removeAllItems', () =>
+        explorerBookmark.removeAllItems(),
       ),
-    ]
-  );
+    ],
+  )
 }
 
 export function deactivate() {}

@@ -1,28 +1,29 @@
-import * as vscode from "vscode";
+import * as vscode from 'vscode'
 
 export class FileSystemObject extends vscode.TreeItem {
-  resourceUri: vscode.Uri;
-  command?: vscode.Command;
+  resourceUri: vscode.Uri
+  command?: vscode.Command
 
   constructor(
     public readonly label: string,
     public readonly collapsibleState: vscode.TreeItemCollapsibleState,
-    uri: vscode.Uri
+    uri: vscode.Uri,
   ) {
-    super(label, collapsibleState);
-    this.tooltip = uri.fsPath;
-    this.resourceUri = uri;
-    this.command =
-      collapsibleState === vscode.TreeItemCollapsibleState.None
+    super(label, collapsibleState)
+    this.tooltip = uri.fsPath
+    this.resourceUri = uri
+    this.command
+      = collapsibleState === vscode.TreeItemCollapsibleState.None
         ? {
             arguments: [this],
-            command: "explorer-bookmark.openFile",
+            command: 'file-bookmark.openFile',
             title: this.label,
           }
-        : undefined;
+        : undefined
   }
+
   setContextValue(value: string) {
-    this.contextValue = value;
-    return this;
+    this.contextValue = value
+    return this
   }
 }

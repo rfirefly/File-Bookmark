@@ -1,11 +1,11 @@
 {
-  "name": "explorer-manager",
+  "name": "file-bookmark",
   "repository": {
     "type": "git",
-    "url": "https://github.com/UrosVuj/Explorer-Bookmark.git"
+    "url": "https://github.com/rfirefly/File-Bookmark.git"
   },
-  "publisher": "UrosVujosevic",
-  "displayName": "Explorer Bookmark",
+  "publisher": "rfirefly",
+  "displayName": "File Bookmark",
   "description": "Quickly access important folders and files",
   "icon": "docs/icon.png",
   "version": "0.0.5",
@@ -26,88 +26,88 @@
     "drawer"
   ],
   "activationEvents": [
-    "onView:explorer-bookmark",
-    "onCommand:explorer-bookmark.selectItem"
+    "onView:file-bookmark",
+    "onCommand:file-bookmark.selectItem"
   ],
   "main": "./out/extension.js",
   "contributes": {
     "viewsWelcome": [
       {
-        "view": "explorer-bookmark",
+        "view": "file-bookmark",
         "contents": "Right click and add a file or folder"
       }
     ],
     "views": {
       "explorer": [
         {
-          "id": "explorer-bookmark",
-          "name": "Explorer Bookmark"
+          "id": "file-bookmark",
+          "name": "File Bookmark"
         }
       ]
     },
     "commands": [
       {
-        "command": "explorer-bookmark.refreshEntry",
+        "command": "file-bookmark.refreshEntry",
         "title": "Refresh",
         "icon": "$(refresh)"
       },
       {
-        "command": "explorer-bookmark.selectItem",
-        "title": "Add to Explorer Bookmark"
+        "command": "file-bookmark.selectItem",
+        "title": "Add to File Bookmark"
       },
       {
-        "command": "explorer-bookmark.removeItem",
-        "title": "Remove from Explorer Bookmark",
+        "command": "file-bookmark.removeItem",
+        "title": "Remove from File Bookmark",
         "icon": "$(close)"
       },
       {
-        "command": "explorer-bookmark.removeAllItems",
+        "command": "file-bookmark.removeAllItems",
         "title": "Remove All Items",
         "icon": "$(trash)"
       },
       {
-        "command": "explorer-bookmark.cantRemoveItemMsg",
-        "title": "Remove from Explorer Bookmark"
+        "command": "file-bookmark.cantRemoveItemMsg",
+        "title": "Remove from File Bookmark"
       }
     ],
     "menus": {
       "view/title": [
         {
-          "command": "explorer-bookmark.refreshEntry",
-          "when": "view == explorer-bookmark",
+          "command": "file-bookmark.refreshEntry",
+          "when": "view == file-bookmark",
           "group": "navigation"
         },
         {
-          "command": "explorer-bookmark.removeAllItems",
-          "when": "view == explorer-bookmark",
+          "command": "file-bookmark.removeAllItems",
+          "when": "view == file-bookmark",
           "group": "navigation"
         }
       ],
       "explorer/context": [
         {
-          "command": "explorer-bookmark.selectItem"
+          "command": "file-bookmark.selectItem"
         }
       ],
       "view/item/context": [
         {
-          "command": "explorer-bookmark.removeItem",
-          "when": "view == explorer-bookmark && viewItem == directlySavedItem"
+          "command": "file-bookmark.removeItem",
+          "when": "view == file-bookmark && viewItem == directlySavedItem"
         },
         {
-          "command": "explorer-bookmark.removeItem",
-          "when": "view == explorer-bookmark && viewItem == directlySavedItem",
+          "command": "file-bookmark.removeItem",
+          "when": "view == file-bookmark && viewItem == directlySavedItem",
           "group": "inline"
         },
         {
-          "command": "explorer-bookmark.cantRemoveItemMsg",
-          "when": "view == explorer-bookmark && viewItem != directlySavedItem"
+          "command": "file-bookmark.cantRemoveItemMsg",
+          "when": "view == file-bookmark && viewItem != directlySavedItem"
         }
       ]
     },
     "configuration": {
-      "title": "Explorer Bookmark",
+      "title": "File Bookmark",
       "properties": {
-        "explorer-bookmark.saveWorkspace": {
+        "file-bookmark.saveWorkspace": {
           "type": "boolean",
           "default": true,
           "description": "Save the current explorer view when closing VS Code"
@@ -124,16 +124,17 @@
     "test": "node ./out/test/runTest.js"
   },
   "devDependencies": {
-    "@types/vscode": "^1.55.0",
-    "@types/glob": "^7.1.3",
-    "@types/mocha": "^8.0.4",
-    "@types/node": "^12.11.7",
-    "eslint": "^7.19.0",
-    "@typescript-eslint/eslint-plugin": "^4.14.1",
-    "@typescript-eslint/parser": "^4.14.1",
-    "glob": "^7.1.6",
-    "mocha": "^8.2.1",
-    "typescript": "^4.1.3",
+    "@antfu/eslint-config": "^0.39.5",
+    "@types/glob": "^8.1.0",
+    "@types/mocha": "^10.0.1",
+    "@types/node": "^20.3.1",
+    "@types/vscode": "^1.79.1",
+    "@typescript-eslint/eslint-plugin": "^5.60.0",
+    "@typescript-eslint/parser": "^5.60.0",
+    "eslint": "^8.43.0",
+    "glob": "^10.3.0",
+    "mocha": "^10.2.0",
+    "typescript": "^5.1.3",
     "vscode-test": "^1.5.0"
   }
 }
