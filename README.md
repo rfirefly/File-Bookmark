@@ -17,5 +17,8 @@ File Bookmark succeeds in making a quick-access explorer view. Adding often used
 
 ## fix
 
-- change name
-- fix: vscode api
+- remove the file bookmark by gui
+
+## todo list
+
+[] save the file list in .vscode , to create the new project faster
