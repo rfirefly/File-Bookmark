@@ -53,7 +53,7 @@ export class ExplorerBookmark implements vscode.TreeDataProvider<FileSystemObjec
   async removeItem(uri: vscode.Uri | undefined) {
     if (uri) {
       const pathWithType = await getUriType(uri)
-      const index = this.selectedFSObjects.map((e)=>e.path).indexOf(pathWithType.path)
+      const index = this.selectedFSObjects.map(e => e.path).indexOf(pathWithType.path)
       if (index > -1)
         this.selectedFSObjects.splice(index, 1)
     }
