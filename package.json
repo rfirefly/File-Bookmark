@@ -25,10 +25,6 @@
     "finder",
     "drawer"
   ],
-  "activationEvents": [
-    "onView:file-bookmark",
-    "onCommand:file-bookmark.selectItem"
-  ],
   "main": "./dist/extension.js",
   "contributes": {
     "viewsWelcome": [

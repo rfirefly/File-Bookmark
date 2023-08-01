@@ -6,6 +6,7 @@ export default defineConfig({
   shims: false,
   dts: false,
   clean: true,
+  sourcemap: process.env.NODE_ENV === 'development',
   env: {
     NODE_ENV: process.env.NODE_ENV || 'production',
   },

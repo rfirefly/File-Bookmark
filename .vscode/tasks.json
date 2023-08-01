@@ -25,10 +25,10 @@
         "background": {
           "activeOnStart": true,
           "beginsPattern": {
-            "regexp": "\\[watch\\] build started"
+            "regexp": "Building entry: .*?\\n"
           },
           "endsPattern": {
-            "regexp": "\\[watch\\] build finished"
+            "regexp": "⚡️ Build success"
           }
         }
       },
