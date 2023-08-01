@@ -8,7 +8,7 @@
   "displayName": "File Bookmark",
   "description": "Quickly access important folders and files",
   "icon": "docs/icon.png",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "engines": {
     "vscode": "^1.79.1"
   },
